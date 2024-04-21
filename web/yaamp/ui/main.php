@@ -3,20 +3,32 @@
 require('misc.php');
 echo <<<END
 
-<!doctype html>
-<!--[if IE 7 ]>		 <html class="no-js ie ie7 lte7 lte8 lte9" lang="en-US"> <![endif]-->
-<!--[if IE 8 ]>		 <html class="no-js ie ie8 lte8 lte9" lang="en-US"> <![endif]-->
-<!--[if IE 9 ]>		 <html class="no-js ie ie9 lte9>" lang="en-US"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
-
+<html class="no-js" lang="en-US">
 <head>
-
 <meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta name="description" content="Yii mining pools for alternative crypto currencies">
-<meta name="keywords" content="anonymous,mining,pool,maxcoin,bitcoin,altcoin,auto,switch,exchange,profit,decred,scrypt,x11,x13,x14,x15,lbry,lyra2re,neoscrypt,sha256,quark,skein2">
+<meta name="description" content="Join the Marscoin Mining Pool to contribute to Mars exploration. Participate anonymously, switch pools automatically, and maximize your mining profit!">
+<meta name="keywords" content="marscoin, cryptocurrency, mining pool, bitcoin, altcoin, profit switching, scrypt mining">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Marscoin Mining Pool" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://mining-mars.com/" />
+<meta property="og:image" content="http://www.mining-mars/images/mining.png" />
+<meta property="og:description" content="Join the Marscoin Mining Pool to contribute to Mars exploration. Participate anonymously, switch pools automatically, and maximize your mining profit!" />
+<meta property="og:site_name" content="Marscoin Mining Pool" />
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="Mining on Mars for fun and prosperity">
+<meta name="twitter:site" content="@marscoinorg">
+<meta name="twitter:title" content="Marscoin Mining Pool">
+<meta name="twitter:description" content="Join the Marscoin Mining Pool to contribute to Mars exploration. Participate anonymously, switch pools automatically, and maximize your mining profit!">
+<meta name="twitter:creator" content="@author_handle">
+<meta name="twitter:image:src" content="http://mining-mars/images/mining.png">
+
+<title>Marscoin Mining Pool</title>
 
 END;
 
@@ -24,7 +36,7 @@ $pageTitle = empty($this->pageTitle) ? YAAMP_SITE_NAME : YAAMP_SITE_NAME." - ".$
 
 echo '<title>'.$pageTitle.'</title>';
 
-echo CHtml::cssFile("/extensions/jquery/themes/ui-lightness/jquery-ui.css");
+echo CHtml::cssFile("/extensions/jquery/themes/ui-darkness/jquery-ui.css");
 echo CHtml::cssFile('/yaamp/ui/css/main.css');
 echo CHtml::cssFile('/yaamp/ui/css/table.css');
 
@@ -142,7 +154,7 @@ function showPageFooter()
 	$year = date("Y", time());
 
 	echo "<p>&copy; $year ".YAAMP_SITE_NAME.' - '.
-		'<a href="https://github.com/Kudaraidee/yiimp">Open source Project</a></p>';
+		'<a href="https://github.com/novalis78/yiimp">Open source Project</a></p>';
 
 	echo '</div><!-- footer -->';
 }

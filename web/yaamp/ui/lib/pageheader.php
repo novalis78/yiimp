@@ -16,7 +16,7 @@
 $pageTitle = empty($this->pageTitle) ? YAAMP_SITE_NAME : YAAMP_SITE_NAME." - ".$this->pageTitle;
 echo '<title>'.$pageTitle.'</title>';
 
-echo CHtml::cssFile("/extensions/jquery/themes/ui-lightness/jquery-ui.css");
+echo CHtml::cssFile("/extensions/jquery/themes/ui-darkness/jquery-ui.css");
 echo CHtml::cssFile('/yaamp/ui/css/main.css');
 echo CHtml::cssFile('/yaamp/ui/css/table.css');
 //echo CHtml::scriptFile('/yaamp/ui/js/jquery.tablesorter.js');

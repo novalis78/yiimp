@@ -33,7 +33,6 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 <ul>
 
 <li>Welcome to <?=YAAMP_SITE_URL?>! </li>
-<li>This fork was based on the yaamp source code and is now an open source project.</li>
 <li>No registration is required, we do payouts in the currency you mine. Use your wallet address as the username.</li>
 <li>Payouts are made automatically every <?= $payout_freq ?> for all balances above <b><?= $min_payout ?></b>, or <b><?= $min_sunday ?></b> on Sunday.</li>
 <li>For some coins, there is an initial delay before the first payout, please wait at least 6 hours before asking for support.</li>
@@ -165,40 +164,19 @@ endif;
 </ul>
 </div></div><br>
 
-<div class="main-left-box">
-<div class="main-left-title"><?=YAAMP_SITE_URL?> Support</div>
-<div class="main-left-inner">
-
-<ul class="social-icons">
-<!--    <li><a href="http://www.facebook.com"><img src='/images/Facebook.png' /></a></li>
-    <li><a href="http://www.twitter.com"><img src='/images/Twitter.png' /></a></li>
-    <li><a href="http://www.youtube.com"><img src='/images/YouTube.png' /></a></li>
-    <li><a href="http://www.github.com"><img src='/images/Github.png' /></a></li> -->
-    <li><a href="https://discord.gg/DrsrWQh3qC"><img src='/images/discord.png' /></a></li>
-</ul>
-
-</div></div><br>
 </td><td valign=top>
 <!--  -->
 
 <div id='pool_current_results'>
-<br><br><br><br><br><br><br><br><br><br>
 </div>
 
 <div id='pool_history_results'>
-<br><br><br><br><br><br><br><br><br><br>
 </div>
 
 <div id='pool_coins_info'>
-<br><br><br><br><br><br><br><br><br><br>
 </div>
 
 </td></tr></table>
-
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
 
 <script>
 
