@@ -143,10 +143,15 @@ class ExchangeCommand extends CConsoleCommand
 			else echo("cexio: ".json_encode(arraySafeVal($balance,"BTC",$balance))."\n");
 		}
 		if (!empty(EXCH_BITTREX_KEY)) {
-			$balance = bittrex_api_query('account/getbalance','&currency=BTC');
+			$balance = dextrade_api_query('account/getbalance','&currency=BTC');
 			if (!is_object($balance)) echo "bittrex error\n";
 			else echo("bittrex btc: ".json_encode($balance->result)."\n");
 		}
+		if (!empty(EXCH_DEXTRADE_KEY)) {
+                        $balance = dextrade_api_query('account/getbalance','&currency=BTC');
+                        if (!is_object($balance)) echo "dextrade error\n";
+                        else echo("dextrade btc: ".json_encode($balance->result)."\n");
+                }
 		if (!empty(EXCH_BLEUTRADE_KEY)) {
 			$balance = bleutrade_api_query('account/getbalances','&currencies=BTC');
 			//$balance = bleutrade_api_query('account/getbalances');

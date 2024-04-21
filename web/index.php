@@ -1,5 +1,4 @@
 <?php
-
 //define('YII_DEBUG', true);
 
 require_once('serverconfig.php');

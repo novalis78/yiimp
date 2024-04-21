@@ -125,6 +125,8 @@ function BackendPricesUpdateExchange($exchangename)
 		break;
 		case 'bittrex':
 			updateBittrexMarkets();
+		case 'dextrade':
+                        updateDextradeMarkets();
 		break;
 		case 'txbit':
 			updateTxbitMarkets();
@@ -1472,6 +1474,69 @@ function updateBittrexMarkets($force = false)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
+//
+//
+//
+function updateDextradeMarkets($force = false)
+{
+    $exchange = 'dex-trade';
+    if (exchange_get($exchange, 'disabled')) return;
+
+    // Assuming there's a similar count check mechanism for existing markets
+    $count = (int) dboscalar("SELECT count(id) FROM markets WHERE name LIKE '$exchange%'");
+    if ($count == 0) return;
+
+    // Fetching ticker list from Dex-Trade public API
+    $list = dex_trade_api_query('public/symbols');
+    if(!is_object($list) || !$list->status) return;
+
+    foreach($list->data as $pairInfo) {
+        $symbol = $pairInfo->base; // Using base currency as the market
+        if(empty($symbol) || $symbol == 'BTC') continue; // Skipping BTC as it is usually a base currency
+
+        $coin = getdbosql('db_coins', "symbol=:sym", array(':sym'=>$symbol));
+        if(!$coin) continue;
+
+        $market = getdbosql('db_markets', "coinid={$coin->id} AND name='$exchange'");
+        if(!$market) continue;
+
+        // Update market information based on API response
+        // Assuming that we store some equivalent data
+        if($market->disabled < 9) $market->disabled = 1; // Assuming no direct 'isActive' field from Dex-Trade
+
+        $market->save();
+    }
+
+    // Fetching market summary
+    $summary = dex_trade_api_query('public/ticker', ['pair' => 'ALL']); // Assuming 'ALL' retrieves all tickers
+    if(!is_object($summary) || !$summary->status) return;
+
+    foreach($summary->data as $m) {
+        $a = explode('-', $m->pair);
+        if(!isset($a[1])) continue;
+        if($a[0] != 'BTC') continue; // Only interested in BTC markets
+        $symbol = $a[1];
+        if($symbol == 'BTC') continue;
+
+        $coin = getdbosql('db_coins', "symbol=:sym", array(':sym'=>$symbol));
+        if(!$coin) continue;
+
+        $market = getdbosql('db_markets', "coinid={$coin->id} AND name='$exchange'");
+        if(!$market) continue;
+
+        if (market_get($exchange, $symbol, "disabled")) {
+            $market->disabled = 1;
+            $market->message = 'disabled from settings';
+        }
+
+        $price2 = ($m->last + $m->open) / 2;
+        $market->price2 = AverageIncrement($market->price2, $price2);
+        $market->price = AverageIncrement($market->price, $m->last);
+        $market->pricetime = time();
+        $market->save();
+    }
+}
+
 
 function updateTxbitMarkets($force = false)
 {

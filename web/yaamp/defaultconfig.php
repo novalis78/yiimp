@@ -45,16 +45,17 @@ if (!defined('EXCH_LIVECOIN_KEY')) define('EXCH_LIVECOIN_KEY', '');
 if (!defined('EXCH_NOVA_KEY')) define('EXCH_NOVA_KEY', '');
 if (!defined('EXCH_STOCKSEXCHANGE_KEY')) define('EXCH_STOCKSEXCHANGE_KEY', '');
 if (!defined('EXCH_TXBIT_KEY')) define('EXCH_TXBIT_KEY', '');
+if (!defined('EXCH_DEXTRADE_KEY')) define('EXCH_DEXTRADE_KEY', '');
 
 if (!defined('YAAMP_BTCADDRESS')) define('YAAMP_BTCADDRESS', '');
-if (!defined('YAAMP_SITE_URL')) define('YAAMP_SITE_URL', 'localhost');
+if (!defined('YAAMP_SITE_URL')) define('YAAMP_SITE_URL', 'www.mining-mars.com');
 if (!defined('YAAMP_API_URL')) define('YAAMP_API_URL', YAAMP_SITE_URL);
 if (!defined('YAAMP_API_PAYOUTS')) define('YAAMP_API_PAYOUTS', false);
 if (!defined('YAAMP_API_PAYOUTS_PERIOD')) define('YAAMP_API_PAYOUTS_PERIOD', 24 * 60 * 60);
 if (!defined('YAAMP_STRATUM_URL')) define('YAAMP_STRATUM_URL', YAAMP_SITE_URL);
-if (!defined('YAAMP_SITE_NAME')) define('YAAMP_SITE_NAME', 'YiiMP');
+if (!defined('YAAMP_SITE_NAME')) define('YAAMP_SITE_NAME', 'Mining-Mars.com');
 if (!defined('YAAMP_DEFAULT_ALGO')) define('YAAMP_DEFAULT_ALGO', 'x11');
-if (!defined('YAAMP_ADMIN_EMAIL')) define('YAAMP_ADMIN_EMAIL', 'yiimp@spam.la');
+if (!defined('YAAMP_ADMIN_EMAIL')) define('YAAMP_ADMIN_EMAIL', 'info@mining-mars.com');
 if (!defined('YAAMP_ADMIN_IP')) define('YAAMP_ADMIN_IP', '127.0.0.1');
 if (!defined('YAAMP_ADMIN_WEBCONSOLE')) define('YAAMP_ADMIN_WEBCONSOLE', true);
 
