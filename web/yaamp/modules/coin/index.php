@@ -130,4 +130,3 @@ echo "</tr>";
 echo '</tfoot>';
 echo "</table>";
 
-echo "<br><br><br><br><br>";
