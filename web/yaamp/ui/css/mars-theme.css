@@ -1,0 +1,137 @@
+/* Mars Theme - Mining Pool Custom Styles */
+
+/* Mars color palette */
+:root {
+    --mars-red: #c1440e;
+    --mars-orange: #e77d11;
+    --mars-rust: #9e2a2b;
+    --mars-dark: #1a1a2e;
+    --mars-surface: #2d2d44;
+    --mars-light: #f4e3d7;
+    --mars-accent: #ff6b35;
+}
+
+/* Override table colors with Mars theme */
+table.dataGrid {
+    color: #333;
+}
+
+table.dataGrid a, table.dataGrid a:visited {
+    color: var(--mars-orange);
+}
+
+table.dataGrid a:hover {
+    color: var(--mars-accent);
+}
+
+table.dataGrid th {
+    background-color: var(--mars-dark);
+    color: var(--mars-light);
+    border-bottom: 2px solid var(--mars-orange);
+}
+
+table.dataGrid th.tablesorter-headerAsc,
+table.dataGrid th.tablesorter-headerDesc {
+    color: var(--mars-accent);
+    background-color: var(--mars-surface);
+}
+
+table.dataGrid2 th.tablesorter-headerAsc,
+table.dataGrid2 th.tablesorter-headerDesc {
+    color: var(--mars-orange);
+}
+
+/* Hover effects */
+.ssrow:hover {
+    background-color: rgba(193, 68, 14, 0.1);
+}
+
+.ssselected {
+    background-color: rgba(193, 68, 14, 0.2);
+}
+
+/* Mining stats boxes */
+.main-left-box {
+    border: 1px solid var(--mars-orange);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.main-left-box:hover {
+    box-shadow: 0 6px 12px rgba(193, 68, 14, 0.2);
+}
+
+.main-left-title {
+    background: linear-gradient(135deg, var(--mars-dark), var(--mars-surface));
+    color: var(--mars-light);
+    border-bottom: 2px solid var(--mars-orange);
+}
+
+/* Pool hashrate highlight */
+.hashrate-high {
+    color: var(--mars-accent);
+    font-weight: bold;
+}
+
+/* Block found animation */
+@keyframes blockFound {
+    0% { background-color: transparent; }
+    50% { background-color: rgba(255, 107, 53, 0.3); }
+    100% { background-color: transparent; }
+}
+
+.block-found {
+    animation: blockFound 2s ease-in-out;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .main-left-box {
+        margin-bottom: 15px;
+    }
+
+    table.dataGrid th, table.dataGrid td {
+        padding: 0.3em;
+        font-size: 0.9em;
+    }
+}
+
+/* Graph container improvements */
+#graph_results_price,
+#pool_hashrate_results {
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px;
+}
+
+/* Button styles */
+.main-submit-button {
+    background: linear-gradient(135deg, var(--mars-orange), var(--mars-red));
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.main-submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(193, 68, 14, 0.3);
+}
+
+/* Status indicators */
+.status-online {
+    color: #28a745;
+}
+
+.status-offline {
+    color: var(--mars-rust);
+}
+
+/* Mining difficulty display */
+.difficulty-value {
+    font-family: 'Courier New', monospace;
+    background: var(--mars-dark);
+    color: var(--mars-light);
+    padding: 2px 6px;
+    border-radius: 3px;
+}

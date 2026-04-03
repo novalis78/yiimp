@@ -125,7 +125,7 @@ $payout_freq = (YAAMP_PAYMENTS_FREQ / 3600) . " hours";
 </table>
 
 <ul>
-<li>&lt;WALLET_ADDRESS&gt; must be valid for the currency you mine. <b>DO NOT USE a BTC address here, the auto exchange is disabled on these stratums</b>!</li>
+<li>&lt;WALLET_ADDRESS&gt; must be a valid Marscoin address starting with <b>M</b>. Get a wallet at <a href="https://www.marscoin.org" target="_blank">marscoin.org</a></li>
 <!-- <li><b>Our stratums are now NiceHASH compatible and ASICBoost enabled, please message support if you have any issues.</b></li> -->
 <li>See the "<?=YAAMP_SITE_NAME?> coins" area on the right for PORT numbers. You may mine any coin regardless if the coin is enabled or not for autoexchange. Payouts will only be made in that coins currency.</li>
 <li>Payouts are made automatically every hour for all balances above <b><?=$min_payout?></b>, or <b><?=$min_sunday?></b> on Sunday.</li>
@@ -163,6 +163,14 @@ endif;
 
 </ul>
 </div></div><br>
+
+
+<div class="main-left-box">
+<div class="main-left-title"></div>
+<div class="main-left-inner">
+<a href="https://www.martianrepublic.org" target="_blank"><img src="/images/mcr_banner.png" style="width: 100%;"></a>
+</div>
+</div>
 
 </td><td valign=top>
 <!--  -->

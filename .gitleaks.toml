@@ -1,0 +1,79 @@
+# Gitleaks Configuration for Marscoin YIIMP Pool
+# https://github.com/gitleaks/gitleaks
+#
+# Place this file in the repo root and run:
+#   gitleaks detect --source . --config .gitleaks.toml
+
+title = "Marscoin YIIMP Pool - Secret Detection Rules"
+
+[extend]
+# Use default gitleaks rules as a base
+useDefault = true
+
+# Custom rules for cryptocurrency/mining pool specific secrets
+[[rules]]
+id = "marscoin-rpc-password"
+description = "Marscoin RPC Password"
+regex = '''rpcpassword\s*=\s*[^\s]+'''
+tags = ["rpc", "marscoin", "password"]
+
+[[rules]]
+id = "mining-rig-rentals-api-key"
+description = "MiningRigRentals API Key"
+regex = '''MRR_API_KEY\s*=\s*["\'][a-f0-9]{64}["\']'''
+tags = ["api", "mrr", "key"]
+
+[[rules]]
+id = "mining-rig-rentals-api-secret"
+description = "MiningRigRentals API Secret"
+regex = '''MRR_API_SECRET\s*=\s*["\'][a-f0-9]{64}["\']'''
+tags = ["api", "mrr", "secret"]
+
+[[rules]]
+id = "mysql-password"
+description = "MySQL Database Password"
+regex = '''DBPASSWORD\s*=\s*["\'][^"\']+["\']'''
+tags = ["database", "mysql", "password"]
+
+[[rules]]
+id = "exchange-api-keys"
+description = "Exchange API Keys (Bittrex, Poloniex, etc.)"
+regex = '''EXCH_[A-Z]+_(KEY|SECRET)\s*=\s*["\'][^"\']+["\']'''
+tags = ["exchange", "api", "key"]
+
+[[rules]]
+id = "wallet-private-key"
+description = "Cryptocurrency Private Key"
+regex = '''(priv|private)[\s_-]*(key)?\s*[:=]\s*["\']?[a-fA-F0-9]{64}["\']?'''
+tags = ["wallet", "private", "key"]
+
+[[rules]]
+id = "stratum-password"
+description = "Stratum Mining Password"
+regex = '''stratum.*password\s*[:=]\s*["\'][^"\']+["\']'''
+tags = ["stratum", "mining", "password"]
+
+# Allowlist - files and patterns to ignore
+[allowlist]
+description = "Global allowlist"
+
+# Ignore example/sample files
+paths = [
+    '''.*\.example''',
+    '''.*\.sample''',
+    '''.*\.template''',
+    '''tests/.*''',
+    '''docs/.*''',
+    '''README\.md''',
+    '''CLAUDE_GUIDE\.md'''
+]
+
+# Ignore specific patterns that look like secrets but aren't
+regexes = [
+    '''rpcpassword\s*=\s*YOUR_PASSWORD_HERE''',
+    '''MRR_API_KEY\s*=\s*["\']your_api_key_here["\']''',
+    '''EXCH_[A-Z]+_KEY\s*=\s*["\']["\']'''  # Empty values
+]
+
+# Commits to ignore (add specific commit hashes if needed)
+commits = []

@@ -10,7 +10,7 @@ echo <<<END
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta name="description" content="Join the Marscoin Mining Pool to contribute to Mars exploration. Participate anonymously, switch pools automatically, and maximize your mining profit!">
-<meta name="keywords" content="marscoin, cryptocurrency, mining pool, bitcoin, altcoin, profit switching, scrypt mining">
+<meta name="keywords" content="marscoin, mars, cryptocurrency, mining pool, scrypt mining, martian republic, space colonization">
 
 <!-- Open Graph data -->
 <meta property="og:title" content="Marscoin Mining Pool" />
