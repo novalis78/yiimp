@@ -277,7 +277,14 @@ function BackendCoinsUpdate()
 
 			else
 			{
-				$coin->auto_ready = false;
+				// Don't immediately disable a coin on transient RPC errors.
+				// Only disable if it was already not ready, or if the error
+				// persists (errors field already set from a previous check).
+				if (!$coin->auto_ready || !empty($coin->errors)) {
+					$coin->auto_ready = false;
+				} else {
+					debuglog("$coin->symbol: transient RPC error, keeping auto_ready=1: ".$remote->error);
+				}
 				$coin->errors = $remote->error;
 			}
 
